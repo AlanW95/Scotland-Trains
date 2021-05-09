@@ -1,0 +1,10 @@
+.ui-header .ui-title {
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+}
+
+.ui-btn
+{
+    overflow: visible !important;
+    white-space: normal !important;
+}

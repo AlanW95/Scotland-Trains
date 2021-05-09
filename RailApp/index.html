@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="railapp.css">
+    <script src="JS/popups.js"></script>
+    <script src="JS/railapp.js"></script>
+    <script src="JS/jqfeed.js"></script>
+    <script src="JS/station_list.js"></script>
+</head>
+<body>
+<div data-role="page" id="homepage" data-theme="b">
+
+    <div data-role="header">
+        <h1>Homepage</h1>
+    </div>
+
+    <div data-role="content">
+        <img src="images/trainlogo.png" alt="homepageImage" style="width:290px; height:250px;">
+        <ul data-role="listview" data-inset="true"></ul>
+        <li><!--Something strange is happening with the Arrivals & Departures button where a bullet point appears-->
+            <a href="#railpage" data-role="button" id="arriveDepart"> Arrivals & Departures </a>
+            <a href="#servicePage" data-role="button" id="serviceFeed"> Service Checks </a>
+            <a href="#favouritesPage" data-role="button" id="favourites"> Favourites </a>
+        </li>
+    </div>
+
+    <div data-role="footer" data-position="fixed" class="ui-bar">
+        <div><ul>
+            <div align="right">
+            </div>
+            <li><a href="#panel" data-role="button" data-icon="info" class="ui-btn-left">About</a></li>
+        </ul></div>
+    </div>
+
+    <div id="panel" data-role="panel">
+        <p>Check a train journey closest to your current date and time you wish to take with the ability to check the current service status of trains in Scotland.</p>
+        <p>Have your own personilised favourites! Add your journey your custom journey and save time entering data!</p>
+        <p>To receive train times you must enter ALL data needed!</p>
+        <p>Swipe to the left to close current panel!</p>
+        <br><br><br><br><br><br>
+        <p> This application is: <br> &copy; J.Alexander & A.Williams, UWS</p>
+    </div>
+</div>
+
+<div data-role="page" id="railpage" data-theme="b">
+    <div data-role="header">
+        <h1 style="font-style: inherit">Journey Planner</h1>
+        <a href="#homepage" dataicon="back" id="backHome">Back</a>
+        <a href="#" data-icon="star" data-iconpos="notext" class="ui-btn-right" id="favouriteStar"></a>
+    </div>
+
+    <div data-role="content">
+        <form>
+            From: <input type="text" data-type="search" class="filter-box" placeholder="Departure station..." id=departurebox>
+            <div class="filterable_list">
+                <ul id="departure-list" data-role="listview" data-inset="true" data-filter="true" data-input="#departurebox">
+                </ul>
+            </div>
+            <br>
+            To: <input type="text" data-type="search" class="filter-box" placeholder="Arrival station..." id="arrivalbox">
+            <div class="filterable_list">
+                <ul id="arrival-list" data-role="listview" data-inset="true" data-filter="true" data-input="#arrivalbox">
+                </ul>
+            </div>
+
+        </form>
+            <br>
+            <div class="date-time">
+                Date: <input id="date">
+                Time: <input id="time">
+            </div>
+            <br>
+            <a href="#confirmation" data-role="button" data-inline="true" id="btnSubmit">Submit</a>
+            <br>
+    </div>
+    <div data-role="footer" data-position="fixed" class="ui-bar">
+        <a href="#" data-role="button" data-inline="true" data-icon="recycle" id="clear" style="float: left;">Clear</a>
+        <a href="#favouritesPage" data-role="button" data-inline="true" data-icon="star" id="gotoFav" style="float: right; margin-right:30px;">Go to Favourites</a>
+    </div>
+</div>
+
+
+<div data-role="page" id="confirmation" data-theme="b">
+    <div data-role="header">
+        <h1>Confirm Your Details</h1>
+    </div>
+
+    <div data-role="content" align="center">
+        Are you sure you wish to select this journey?
+        <br>
+        <a href="#journey" data-role="button" data-inline="true" data-icon="check" id="submit" class="enableOnInput">Yes</a>
+        <a href="#" data-role="button" data-inline="true" data-rel="back" data-icon="delete">Cancel</a>
+        </br>
+    </div>
+</div>
+
+<div data-role="page" id="journey" data-theme="b">
+    <div data-role="header">
+        <h1 id = title>Journey Options</h1>
+        <a href="#railpage" dataicon="back">Back</a>
+    </div>
+
+    <div data-role="content">
+        <ul id="list" data-role="listview" data-inset="true">
+
+        </ul>
+    </div>
+</div>
+
+<div data-role="page" id="servicePage" data-theme="b">
+    <div data-role="header">
+        <h1 id = serviceTitle>Service Checks</h1>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" id="serviceList" data-inset="true">
+        </ul>
+    </div>
+
+    <div data-role="footer">
+        <a href="#" data-role="button" data-inline="true" data-rel="back">Back</a>
+    </div>
+</div>
+
+<div data-role="page" id="favouritesPage" data-theme="b">
+    <div data-role="header">
+        <h1 id="favouritesTitle">Favourites</h1>
+        <a href="#" data-rel="back" dataicon="back">Back</a>
+    </div>
+
+    <div data-role="content">
+        <ul data-role="listview" data-inset="true" id="favList">
+
+        </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li>
+                    <a href="#railpage" id="addFavourite"> Add Favourite </a>
+                </li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
