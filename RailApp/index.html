@@ -20,17 +20,18 @@
 <div data-role="page" id="homepage" data-theme="b">
 
     <div data-role="header">
-        <h1>Homepage</h1>
+        <h1>Scotland Trains</h1>
     </div>
 
     <div data-role="content">
-        <img src="images/trainlogo.png" alt="homepageImage" style="width:290px; height:250px;">
+        <!--<img src="images/trainlogo.png" alt="homepageImage" style="width:290px; height:250px;">-->
+        <p style="text-align:center;"><img src="images/trainlogo.png" alt="homepageImage" style="width: 290px; height: 250px;"></p>
         <ul data-role="listview" data-inset="true"></ul>
-        <li><!--Something strange is happening with the Arrivals & Departures button where a bullet point appears-->
+        <ul><!--Something strange is happening with the Arrivals & Departures button where a bullet point appears-->
             <a href="#railpage" data-role="button" id="arriveDepart"> Arrivals & Departures </a>
             <a href="#servicePage" data-role="button" id="serviceFeed"> Service Checks </a>
             <a href="#favouritesPage" data-role="button" id="favourites"> Favourites </a>
-        </li>
+        </ul>
     </div>
 
     <div data-role="footer" data-position="fixed" class="ui-bar">
@@ -41,13 +42,12 @@
         </ul></div>
     </div>
 
-    <div id="panel" data-role="panel">
-        <p>Check a train journey closest to your current date and time you wish to take with the ability to check the current service status of trains in Scotland.</p>
-        <p>Have your own personilised favourites! Add your journey your custom journey and save time entering data!</p>
-        <p>To receive train times you must enter ALL data needed!</p>
-        <p>Swipe to the left to close current panel!</p>
-        <br><br><br><br><br><br>
-        <p> This application is: <br> &copy; J.Alexander & A.Williams, UWS</p>
+    <div id="panel" data-role="panel" data-display="overlay">
+        <div>
+            <p>Planning a journey or need to commute for work? Using Scottish trains you can check your train journey from and to any train station in Scotland.</p>
+            <p>Personalise and manage a list of your favourite journeys.</p>
+            <p style="position: absolute; bottom: 0;"> Scotland Trains: <br> &copy; Alan Williams, Game Developer</p>
+        </div>
     </div>
 </div>
 
