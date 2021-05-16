@@ -5,10 +5,10 @@
 //Felt appropriate to store in separate JavaScript file to save confusion from the main railapp.js
 
 var stations = {
-    "Sport": "SPT",
+    /*"Sport": "SPT",
     "Meetup": "MTP",
     "Events": "ENT",
-    "News": "NES",
+    "News": "NES",*/
     "Aberdeen": "ABD",
     "Aberdour": "AUR",
     "Achanalt": "AAT",
