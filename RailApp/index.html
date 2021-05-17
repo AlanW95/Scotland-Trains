@@ -21,9 +21,10 @@
     <script src="JS/station_list.js"></script>
 </head>
 <body>
-<div data-role="page" id="homepage"><!--data-theme="b"-->
+<div class="home-wrapper" data-role="page" id="homepage"><!--data-theme="b"-->
 
     <div data-role="header">
+        <a href="#panel" data-role="button" data-icon="bars" class="ui-btn-left" style="height: 15px;">Menu</a>
         <h1>Scotland Trains</h1>
     </div>
 
@@ -32,24 +33,32 @@
         <p style="text-align:center;"><img src="images/train-icon.png" alt="trainIcon" style="width: 400px; height: 400px;"></p>
         <ul data-role="listview" data-inset="true"></ul>
         <ul><!--Journey Planner - Removed strange bullet point-->
-            <a href="#railpage" data-role="button" id="arriveDepart"> Journey Planner </a>
+            <a href="#railpage" data-role="button" id="arriveDepart">Journey Planner</a>
             <!--<a href="#servicePage" data-role="button" id="serviceFeed"> Service Checks </a>-->
             <!--<a href="#favouritesPage" data-role="button" id="favourites"> Favourites </a>-->
         </ul>
+
+        <div style="position:relative">
+            <h3 style="position: relative; middle: 0; width: 100%; text-align: center; font-variant: small-caps;"><b>Going on holiday? Planning a regular commute?</b><br>Scotland Trains gives you the time and platform of your specific route anywhere in Scotland!</h3>
+        </div>
+        <div style="position:relative">
+            <p style="position: fixed; bottom: 0; width: 100%; text-align: center;"><i>&copy; Alan Williams<br>Game Developer</i></p>
+        </div>
     </div>
 
-    <div data-role="footer" data-position="fixed" class="ui-bar">
+    <!--Old Footer, moved the about button as a menu button on the top left-->
+    <!--<div data-role="footer" data-position="fixed" class="ui-bar">
         <div><ul>
             <li><a href="#panel" data-role="button" data-icon="info" class="ui-btn-left">About</a></li>
         </ul></div>
-    </div>
+    </div>-->
 
     <div id="panel" data-role="panel" data-display="overlay">
         <div>
             <p>Planning a journey or need to commute for work? Using Scottish trains you can check your train journey from and to any train station in Scotland.</p>
             <p>Personalise and manage a list of your favourite journeys.</p>
             <p><a href="#favouritesPage" data-role="button" data-icon="star">Go to Favourites</a></p>
-            <p style="position: absolute; bottom: 0;"> Scotland Trains: <br> &copy; Alan Williams, Game Developer</p>
+            <!--<p style="position: absolute; bottom: 0;"> Scotland Trains: <br> &copy; Alan Williams, Game Developer</p>-->
         </div>
     </div>
 </div>
@@ -141,6 +150,7 @@
     </div>
 
     <div data-role="content">
+        <p>Swipe your favourite to delete.</p>
         <ul data-role="listview" data-inset="true" id="favList">
 
         </ul>
